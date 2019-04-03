@@ -7,7 +7,7 @@ if !exists('g:tux_pane_size')
   let g:tux_pane_size = 30
 endif
 
-command! -nargs=+ -bang Tux call <SID>tmuxCommand(<q-args>, <bang>0)
+command! -nargs=+ -complete=shellcmd -bang Tux call <SID>tmuxCommand(<q-args>, <bang>0)
 
 function! s:tmuxCommand(command, new_window)
   let l:new_pane = 0

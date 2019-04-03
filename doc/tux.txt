@@ -2,7 +2,7 @@
 
 Author:  David Marchante <https://github.com/iovis9>
 License: Same terms as Vim itself (see |license|)
-Version: 1.0 (2019-03-27)
+Version: 1.1 (2019-04-03)
 
 This plugin is only available if 'compatible' is not set.
 
@@ -64,6 +64,9 @@ Report any issues to https://github.com/iovis9/tux.vim/issues
 
 ==============================================================================
 CHANGELOG                                                      *tux-changelog*
+
+Version 1.1: 2019-04-03
+  - Autocomplete shell commands
 
 Version 1.0: 2019-03-27
   - Initial release
