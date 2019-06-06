@@ -1,6 +1,6 @@
 *tux.txt*  Launch commands in Tmux from Vim
 
-Author:  David Marchante <https://github.com/iovis9>
+Author:  David Marchante <https://github.com/iovis>
 License: Same terms as Vim itself (see |license|)
 Version: 1.1 (2019-04-03)
 
@@ -60,7 +60,7 @@ Run rspec for current file and line
 ==============================================================================
 BUGS                                                                *tux-bugs*
 
-Report any issues to https://github.com/iovis9/tux.vim/issues
+Report any issues to https://github.com/iovis/tux.vim/issues
 
 ==============================================================================
 CHANGELOG                                                      *tux-changelog*
