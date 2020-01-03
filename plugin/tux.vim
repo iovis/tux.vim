@@ -29,6 +29,7 @@ function! s:tmuxCommand(command, new_window)
 
   let l:tmux_command .= shellescape(a:command)
   let l:tmux_command .= ' Enter'
+  let l:tmux_command = escape(l:tmux_command, ';')
 
   silent execute l:tmux_command
 endfunction
