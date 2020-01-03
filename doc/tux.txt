@@ -2,7 +2,7 @@
 
 Author:  David Marchante <https://github.com/iovis>
 License: Same terms as Vim itself (see |license|)
-Version: 1.1 (2019-04-03)
+Version: 1.2 (2020-01-03)
 
 This plugin is only available if 'compatible' is not set.
 
@@ -64,6 +64,9 @@ Report any issues to https://github.com/iovis/tux.vim/issues
 
 ==============================================================================
 CHANGELOG                                                      *tux-changelog*
+
+Version 1.2: 2020-01-03
+  - Escape semicolons
 
 Version 1.1: 2019-04-03
   - Autocomplete shell commands
