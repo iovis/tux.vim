@@ -8,11 +8,12 @@ Launch commands in Tmux from Vim
 
 Use your preferred installation method for Vim plugins.
 
-With [vim-plug](https://github.com/junegunn/vim-plug) that would mean to add
-the following to your vimrc:
-
 ```vim
 Plug 'iovis/tux.vim'
+```
+
+```lua
+use("iovis/tux.vim")
 ```
 
 ## Usage ##
@@ -22,6 +23,8 @@ Launch `:Tux` to run a command in your last pane or create a new one. Use `!` fo
 ```vim
 :Tux[!] {cmd}
 ```
+
+The command `:TuxRaw` won't escape semicolons.
 
 ## Examples ##
 

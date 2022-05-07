@@ -7,9 +7,23 @@ if !exists('g:tux_pane_size')
   let g:tux_pane_size = 30
 endif
 
-command! -nargs=+ -complete=shellcmd -bang Tux call <SID>tmuxCommand(<q-args>, <bang>0)
+command! -nargs=+ -complete=shellcmd -bang TuxRaw call <SID>tmuxRawCommand(<q-args>, <bang>0)
+command! -nargs=+ -complete=shellcmd -bang Tux    call <SID>tmuxCommand(<q-args>, <bang>0)
+
+function! s:tmuxRawCommand(command, new_window)
+  let l:tmux_command = s:parseCommand(a:command, a:new_window)
+
+  silent execute l:tmux_command
+endfunction
 
 function! s:tmuxCommand(command, new_window)
+  let l:tmux_command = s:parseCommand(a:command, a:new_window)
+  let l:tmux_command = escape(l:tmux_command, ';')
+
+  silent execute l:tmux_command
+endfunction
+
+function! s:parseCommand(command, new_window)
   let l:new_pane = 0
 
   " Open a window or pane if necessary
@@ -29,7 +43,6 @@ function! s:tmuxCommand(command, new_window)
 
   let l:tmux_command .= shellescape(a:command)
   let l:tmux_command .= ' Enter'
-  let l:tmux_command = escape(l:tmux_command, ';')
 
-  silent execute l:tmux_command
+  return l:tmux_command
 endfunction

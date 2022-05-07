@@ -2,7 +2,7 @@
 
 Author:  David Marchante <https://github.com/iovis>
 License: Same terms as Vim itself (see |license|)
-Version: 1.2 (2020-01-03)
+Version: 1.3 (2022-05-07)
 
 This plugin is only available if 'compatible' is not set.
 
@@ -22,6 +22,9 @@ USAGE                                                              *tux-usage*
 :Tux[!] {cmd}
                       Launch {cmd} in the last window pane or create one.
                       With [!] it'll create a new window.
+
+:TuxRaw[!] {cmd}
+                      Same as *:Tux*, but don't escape ';'
 
 ==============================================================================
 CUSTOMISATION                                              *tux-customisation*
@@ -64,6 +67,9 @@ Report any issues to https://github.com/iovis/tux.vim/issues
 
 ==============================================================================
 CHANGELOG                                                      *tux-changelog*
+
+Version 1.3: 2022-05-07
+  - Add :TuxRaw without escaping semicolons
 
 Version 1.2: 2020-01-03
   - Escape semicolons
