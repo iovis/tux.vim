@@ -9,6 +9,7 @@ endif
 
 command! -nargs=+ -complete=shellcmd -bang TuxRaw call <SID>tmuxRawCommand(<q-args>, <bang>0)
 command! -nargs=+ -complete=shellcmd -bang Tux    call <SID>tmuxCommand(<q-args>, <bang>0)
+command! -nargs=+ -complete=shellcmd -bang TuxBg  call <SID>tmuxBgCommand(<q-args>, <bang>0)
 
 function! s:tmuxRawCommand(command, new_window)
   let l:tmux_command = s:parseCommand(a:command, a:new_window)
@@ -16,9 +17,28 @@ function! s:tmuxRawCommand(command, new_window)
   silent execute l:tmux_command
 endfunction
 
+" Execute in last pane
+" <bang>: new window
 function! s:tmuxCommand(command, new_window)
   let l:tmux_command = s:parseCommand(a:command, a:new_window)
   let l:tmux_command = escape(l:tmux_command, ';')
+
+  silent execute l:tmux_command
+endfunction
+
+" Execute in new window and clean window on exit
+function! s:tmuxBgCommand(command, background)
+  let l:tmux_command = '!tmux new-window '
+
+  if a:background
+    let l:tmux_command .= '-d '
+  endif
+
+  " wait in case of error or ctrl-c
+  let l:wait = '; test $? = 0 -o $? = 130 || exec head -1'
+
+  let l:tmux_command .= '$SHELL -i -c '
+  let l:tmux_command .= shellescape(a:command . l:wait)
 
   silent execute l:tmux_command
 endfunction
