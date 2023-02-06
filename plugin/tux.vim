@@ -35,7 +35,14 @@ function! s:tmuxBgCommand(command, background)
   endif
 
   " wait in case of error or ctrl-c
-  let l:wait = '; test $? = 0 -o $? = 130 || exec head -1'
+  let l:status = '$?'
+
+  if &shell =~# 'csh\|fish'
+    let l:status = '$status'
+  endif
+
+  let l:wait = '; test ' . l:status . ' = 0 -o ' . l:status . ' = 130 || exec head -1'
+
 
   let l:tmux_command .= '$SHELL -i -c '
   let l:tmux_command .= shellescape(a:command . l:wait)
